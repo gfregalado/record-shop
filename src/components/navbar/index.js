@@ -1,5 +1,7 @@
 import React from 'react';
-import { Menu } from 'antd';
+import { Menu, Layout, Row, Col } from 'antd';
+import './styles.scss';
+const { Header } = Layout;
 
 class Navbar extends React.Component {
   state = {
@@ -15,17 +17,29 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <Menu
-        onClick={this.handleClick}
-        selectedKeys={[this.state.current]}
-        mode="horizontal"
-        style={{ backgroundColor: '#F7F2EF' }}
-      >
-        <Menu.Item key="home">Home</Menu.Item>
-        <Menu.Item key="shop">Shop</Menu.Item>
-        <Menu.Item key="news">News</Menu.Item>
-        <Menu.Item key="inspiration">Inspiration</Menu.Item>
-      </Menu>
+      <Layout>
+        <Header style={{ padding: '0px', backgroundColor: '#F7F2EF' }}>
+          <Row justify="space-around">
+            <Col span={4}>
+              <div className="logo" />
+            </Col>
+
+            <Col span={8}>
+              <Menu
+                mode="horizontal"
+                onClick={this.handleClick}
+                selectedKeys={[this.state.current]}
+                style={{ backgroundColor: '#F7F2EF', height: '50%' }}
+              >
+                <Menu.Item key="Home">Home</Menu.Item>
+                <Menu.Item key="Shop">Shop</Menu.Item>
+                <Menu.Item key="News">News</Menu.Item>
+              </Menu>
+            </Col>
+            <Col span={4}>cart, user & search bar missing</Col>
+          </Row>
+        </Header>
+      </Layout>
     );
   }
 }
