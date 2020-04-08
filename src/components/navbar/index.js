@@ -19,7 +19,7 @@ class Navbar extends React.Component {
     return (
       <Layout>
         <Header style={{ padding: '0px', backgroundColor: '#F7F2EF' }}>
-          <Row justify="space-around">
+          <Row justify="space-around" align="middle">
             <Col span={4}>
               <div className="logo" />
             </Col>
