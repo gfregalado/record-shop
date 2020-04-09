@@ -1,4 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
 .banner {
   background-color: #f7f2ef;
-  height: 91.6vh;
+  height: 95vh;
+  padding-top: 10vh;
+  h1 {
+    position: relative;
+    z-index: 1;
+    left: -18%;
+    top: 10%;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 90px;
+    letter-spacing: 22px;
+    overflow-x: visible;
+    color: #fd5756;
+    width: 100vw;
+  }
+  h2 {
+    position: relative;
+    z-index: 1;
+    left: -31%;
+    top: -10%;
+    font-weight: 900;
+    font-size: 70px;
+    letter-spacing: 14px;
+    overflow-x: visible;
+    color: #2e83ea;
+    width: 100vw;
+  }
+}
+
+.bannerImage {
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/record-shop-96ab5.appspot.com/o/bannerImage.jpg?alt=media&token=fe84040a-d4d6-4f07-9c72-2fb8838cfbcd);
+  background-size: 50vh;
+  background-repeat: no-repeat;
+  background-position-x: 75%;
 }

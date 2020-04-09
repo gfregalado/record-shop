@@ -29,7 +29,11 @@ class Navbar extends React.Component {
                 mode="horizontal"
                 onClick={this.handleClick}
                 selectedKeys={[this.state.current]}
-                style={{ backgroundColor: '#F7F2EF', height: '50%' }}
+                style={{
+                  backgroundColor: '#F7F2EF',
+                  height: '50%',
+                  border: 'none',
+                }}
               >
                 <Menu.Item key="Home">Home</Menu.Item>
                 <Menu.Item key="Shop">Shop</Menu.Item>

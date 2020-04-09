@@ -11,6 +11,7 @@ module.exports = override(
     modifyVars: {
       '@primary-color': '#FD5756',
       '@layout-header-height': '37px',
+      '@border-radius-base': '0px',
     },
   })
 );

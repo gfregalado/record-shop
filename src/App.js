@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-// import 'antd/dist/antd.css';
+
 import './index.css';
 import Home from './components/home';
+require('dotenv').config();
 
 function App() {
   return (
