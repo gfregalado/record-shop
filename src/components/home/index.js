@@ -3,7 +3,7 @@ import './styles.scss';
 import { Row, Col, Button } from 'antd';
 
 import Navbar from '../navbar';
-import axios from 'axios';
+// import axios from 'axios';
 
 class Home extends React.Component {
   constructor(props) {

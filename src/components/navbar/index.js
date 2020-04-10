@@ -1,6 +1,8 @@
 import React from 'react';
 import { Menu, Layout, Row, Col } from 'antd';
 import './styles.scss';
+
+import Axios from 'axios';
 const { Header } = Layout;
 
 class Navbar extends React.Component {
