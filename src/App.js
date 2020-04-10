@@ -5,8 +5,6 @@ import './index.css';
 import Home from './components/home';
 require('dotenv').config();
 
-const Discogs = require('disconnect').Client;
-
 function App() {
   return (
     <div className="App">
