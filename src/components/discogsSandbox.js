@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-require('dotenv').config();
+
 //Tests for the api call structure
 class SandboxAPI extends React.Component {
   constructor(props) {
@@ -9,8 +9,9 @@ class SandboxAPI extends React.Component {
   }
 
   componentDidMount() {
+    console.log(process.env);
     Axios.get(
-      `https://api.discogs.com/database/search?q=${process.env.DISCOGS_TOKEN}`
+      `https://api.discogs.com/database/search?q=Goldlink&token=${process.env.REACT_APP_DISCOGS_TOKEN}`
     ).then((responseFromApi) => {
       const artist = responseFromApi.data.results[0];
       console.log(artist);

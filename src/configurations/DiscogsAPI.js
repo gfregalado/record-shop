@@ -1,1 +1,0 @@
-const APITOKEN = 'TEST2';
