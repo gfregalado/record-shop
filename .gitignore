@@ -24,4 +24,4 @@ yarn-error.log*
 
 # configurations
 
-/src/configurations/DiscogsAPI
+/src/configurations/DiscogsAPI.js

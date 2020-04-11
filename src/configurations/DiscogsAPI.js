@@ -1,1 +1,1 @@
-const APITOKEN = 'TEST';
+const APITOKEN = 'TEST2';
