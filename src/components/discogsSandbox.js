@@ -8,40 +8,34 @@ class SandboxAPI extends React.Component {
     this.state = {};
   }
 
-  componentDidMount() {
-    console.log(process.env);
+  // mapVinylReleases = (vinylReleases) => {
+  //   vinylReleases.map((master) =>
+  //     Axios.get(
+  //       `https://api.discogs.com/masters/${master.id}/versions?format=Vinyl`
+  //     ).then((responseFromApi) => {
+  //       const vinyl = responseFromApi.data;
+  //       console.log(vinyl);
+  //       if (vinyl.versions.length >= 1)
+  //         this.setState({
+  //           artistVinylAlbums: [this.state.artistVinylAlbums, vinyl.versions],
+  //         });
+  //     })
+  //   );
+  // };
+
+  getArtistVinylReleases = (artistName) => {
     Axios.get(
-      `https://api.discogs.com/database/search?q=Goldlink&token=${process.env.REACT_APP_DISCOGS_TOKEN}`
+      `https://api.discogs.com/database/search?artist=${artistName}&format=vinyl&type=release&sort=year&token=${process.env.REACT_APP_DISCOGS_TOKEN}`
     ).then((responseFromApi) => {
-      const artist = responseFromApi.data.results[0];
-      console.log(artist);
-      Axios.get(
-        `https://api.discogs.com/artists/3814790/releases?per_page=1000`
-      ).then((responseFromApi) => {
-        const releases = responseFromApi.data.releases;
-        console.log(releases);
-        const vinylReleases = releases.filter(
-          (release) =>
-            release.type === 'master' && release.artist === 'GoldLink'
-        );
-        console.log(vinylReleases);
-        vinylReleases.map((master) =>
-          Axios.get(
-            `https://api.discogs.com/masters/${master.id}/versions?format=Vinyl`
-          ).then((responseFromApi) => {
-            const vinyl = responseFromApi.data;
-            console.log(vinyl);
-            if (vinyl.versions.length >= 1)
-              this.setState({
-                artistVinylAlbums: [
-                  this.state.artistVinylAlbums,
-                  vinyl.versions,
-                ],
-              });
-          })
-        );
+      const artistVinylReleases = responseFromApi.data;
+      this.setState({
+        artistVinylReleases: artistVinylReleases,
       });
     });
+  };
+
+  componentDidMount() {
+    this.getArtistVinylReleases('Nirvana');
   }
 
   render() {
