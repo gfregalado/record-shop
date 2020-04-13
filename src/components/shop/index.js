@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Col, Row } from 'antd';
 import './styles.scss';
+import PulseLoader from 'react-spinners/PulseLoader';
 import Axios from 'axios';
 
 class Storefront extends Component {
@@ -8,6 +9,7 @@ class Storefront extends Component {
     super(props);
     this.state = {
       vinylReleases: [],
+      load: undefined,
     };
   }
 
@@ -23,12 +25,15 @@ class Storefront extends Component {
         vinylReleases: allVinylReleases,
         nextPage: nextPage,
         lastPage: lastPage,
+        load: true,
       });
     });
   };
 
   componentDidMount() {
-    this.getAllVinylReleases();
+    setTimeout(() => {
+      this.getAllVinylReleases();
+    }, 1000);
   }
 
   render() {
@@ -51,7 +56,17 @@ class Storefront extends Component {
           <h2>Search Options Coming Soons</h2>
         </div>
         <div className="site-card-wrapper">
-          <Row gutter={[48, 16]}>{arrayOfProducts}</Row>
+          {!this.state.load ? (
+            <div className="loadWrapper">
+              <PulseLoader
+                size={30}
+                color={'#FD5756'}
+                loading={this.state.loading}
+              />
+            </div>
+          ) : (
+            <Row gutter={[48, 16]}>{arrayOfProducts}</Row>
+          )}
         </div>
       </div>
     );
