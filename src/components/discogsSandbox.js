@@ -35,8 +35,20 @@ class SandboxAPI extends React.Component {
     });
   };
 
+  getAllVinylReleases = () => {
+    Axios.get(
+      `https://api.discogs.com/database/search?format=vinyl&type=release&sort=year&sort_order=desc&page=1&per_page=9&token=${process.env.REACT_APP_DISCOGS_TOKEN}`
+    ).then((responseFromApi) => {
+      const allVinylReleases = responseFromApi.data;
+      this.setState({
+        artistVinylReleases: allVinylReleases,
+      });
+    });
+  };
+
   componentDidMount() {
-    this.getArtistVinylReleases('tyler the creator');
+    // this.getArtistVinylReleases('tyler the creator');
+    // this.getAllVinylReleases();
   }
 
   render() {

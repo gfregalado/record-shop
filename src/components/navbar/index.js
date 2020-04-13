@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, Layout, Row, Col } from 'antd';
 import './styles.scss';
 
@@ -6,7 +7,7 @@ const { Header } = Layout;
 
 class Navbar extends React.Component {
   state = {
-    current: 'mail',
+    current: 'Home',
   };
 
   handleClick = (e) => {
@@ -36,8 +37,14 @@ class Navbar extends React.Component {
                   border: 'none',
                 }}
               >
-                <Menu.Item key="Home">Home</Menu.Item>
-                <Menu.Item key="Shop">Shop</Menu.Item>
+                <Menu.Item key="Home">
+                  <Link to="/">Home</Link>
+                </Menu.Item>
+
+                <Menu.Item key="Shop">
+                  <Link to="/shop">Shop</Link>
+                </Menu.Item>
+
                 <Menu.Item key="News">News</Menu.Item>
               </Menu>
             </Col>
