@@ -2,7 +2,6 @@ import React from 'react';
 import './styles.scss';
 import { Row, Col, Button } from 'antd';
 
-import Navbar from '../navbar';
 // import axios from 'axios';
 
 class Home extends React.Component {
@@ -14,8 +13,6 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <Navbar></Navbar>
-
         <Row className="banner">
           <Col span={8}>
             <h1>オウムの記録</h1>
