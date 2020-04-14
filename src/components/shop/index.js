@@ -2,42 +2,38 @@ import React, { Component } from 'react';
 import { Card, Col, Row } from 'antd';
 import './styles.scss';
 import PulseLoader from 'react-spinners/PulseLoader';
-import Axios from 'axios';
+import { productslist } from '../../Services/product';
 
 class Storefront extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      vinylReleases: [],
+      products: [],
       load: undefined,
     };
   }
 
-  getAllVinylReleases = () => {
-    Axios.get(
-      `https://api.discogs.com/database/search?format=vinyl&type=release&sort=year&sort_order=desc&page=1&per_page=8&token=${process.env.REACT_APP_DISCOGS_TOKEN}`
-    ).then((responseFromApi) => {
-      const allVinylReleases = responseFromApi.data.results;
-      const nextPage = responseFromApi.data.pagination.urls.next;
-      const lastPage = responseFromApi.data.pagination.urls.last;
-
-      this.setState({
-        vinylReleases: allVinylReleases,
-        nextPage: nextPage,
-        lastPage: lastPage,
-        load: true,
-      });
-    });
-  };
-
   componentDidMount() {
-    setTimeout(() => {
-      this.getAllVinylReleases();
-    }, 1000);
+    this.fetchData();
+  }
+
+  fetchData() {
+    productslist()
+      .then((products) => {
+        this.setState({
+          products: products.results,
+          nextPage: products.pagination.urls.next,
+          lastPage: products.pagination.urls.last,
+          load: true,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {
-    const arrayOfProducts = this.state.vinylReleases.map((vinyl) => {
+    const arrayOfProducts = this.state.products.map((vinyl) => {
       return (
         <Col style={{ width: '25%', paddingLeft: '6%', paddingRight: '6%' }}>
           <Card
@@ -61,7 +57,7 @@ class Storefront extends Component {
               <PulseLoader
                 size={30}
                 color={'#FD5756'}
-                loading={this.state.loading}
+                loading={this.state.load}
               />
             </div>
           ) : (
