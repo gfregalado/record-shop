@@ -8,21 +8,6 @@ class SandboxAPI extends React.Component {
     this.state = {};
   }
 
-  // mapVinylReleases = (vinylReleases) => {
-  //   vinylReleases.map((master) =>
-  //     Axios.get(
-  //       `https://api.discogs.com/masters/${master.id}/versions?format=Vinyl`
-  //     ).then((responseFromApi) => {
-  //       const vinyl = responseFromApi.data;
-  //       console.log(vinyl);
-  //       if (vinyl.versions.length >= 1)
-  //         this.setState({
-  //           artistVinylAlbums: [this.state.artistVinylAlbums, vinyl.versions],
-  //         });
-  //     })
-  //   );
-  // };
-
   getArtistVinylReleases = (artistName) => {
     const artistNameCleaned = artistName.replace(/\s/g, '+');
     Axios.get(
@@ -35,28 +20,10 @@ class SandboxAPI extends React.Component {
     });
   };
 
-  getAllVinylReleases = () => {
-    Axios.get(
-      `https://api.discogs.com/database/search?format=vinyl&type=release&sort=year&sort_order=desc&page=1&per_page=9&token=${process.env.REACT_APP_DISCOGS_TOKEN}`
-    ).then((responseFromApi) => {
-      const allVinylReleases = responseFromApi.data;
-      this.setState({
-        artistVinylReleases: allVinylReleases,
-      });
-    });
-  };
-
-  componentDidMount() {
-    // this.getArtistVinylReleases('tyler the creator');
-    // this.getAllVinylReleases();
-  }
+  componentDidMount() {}
 
   render() {
-    return (
-      <div>
-        <h1>SANDBOX</h1>
-      </div>
-    );
+    return <div></div>;
   }
 }
 
