@@ -26,6 +26,15 @@ class Storefront extends Component {
     }
   }
 
+  retrieveArtist(title) {
+    const splitTitle = title.split('-');
+    return splitTitle[0].trim();
+  }
+  retrieveAlbum(title) {
+    const splitTitle = title.split('-');
+    return splitTitle[1].trim();
+  }
+
   fetchData() {
     const page = this.state.page;
     const url = this.state.apiEndpoing + '&page=' + page;
@@ -71,12 +80,13 @@ class Storefront extends Component {
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src =
-                    'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Copyright.svg/600px-Copyright.svg.png';
+                    'https://londontopsoc.org/wp-content/uploads/2018/05/Placeholder.png';
                 }}
               />
             }
           >
-            <p>{product.title}</p>
+            <p>{this.retrieveArtist(product.title)}</p>
+            <p>{this.retrieveAlbum(product.title)}</p>
           </Card>
         </Col>
       );
