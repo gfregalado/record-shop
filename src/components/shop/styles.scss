@@ -6,6 +6,14 @@
 .ant-card-cover {
   color: #f7f2ef;
   border: none;
+  overflow: hidden;
+  width: 163px;
+  height: 163px;
+  overflow: hidden;
+}
+
+.ant-card-cover img {
+  height: 100%;
 }
 
 .ant-card-body {
