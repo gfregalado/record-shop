@@ -6,6 +6,9 @@ import './index.css';
 import Navbar from './components/navbar';
 import Home from './components/home';
 import Storefront from './components/shop';
+import Album from './components/album';
+import Artist from './components/artist';
+
 import SandboxAPI from './components/discogsSandbox';
 
 function App() {
@@ -16,6 +19,12 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/shop" exact component={Storefront} />
+          <Route path="/artist/:id" exact component={Artist} />
+          <Route
+            path="/album/:id"
+            exact
+            render={(props) => <Album {...props} />}
+          />
         </Switch>
         <SandboxAPI></SandboxAPI>
       </BrowserRouter>

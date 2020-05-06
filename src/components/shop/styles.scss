@@ -6,8 +6,8 @@
 .ant-card-cover {
   color: #f7f2ef;
   border: none;
-  width: 163px;
-  height: 163px;
+  width: 180px;
+  height: 180px;
   overflow: hidden;
   -webkit-box-shadow: 0px 0px 60px -23px rgba(0, 0, 0, 0.86);
   -moz-box-shadow: 0px 0px 60px -23px rgba(0, 0, 0, 0.86);
@@ -31,13 +31,17 @@
 .ant-card-body {
   padding-right: 0px;
   padding-left: 0px;
-  width: 163px;
+  width: 180px;
 }
 .controlers {
   text-align: right;
-  padding: 6% 12% 0% 8%;
+  padding: 6% 5% 2% 8%;
 }
 
 .loadWrapper {
   margin-top: 20vh;
+}
+
+.album-details {
+  text-align: left;
 }

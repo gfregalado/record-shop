@@ -11,7 +11,7 @@ class SandboxAPI extends React.Component {
   getArtistVinylReleases = (artistName) => {
     const artistNameCleaned = artistName.replace(/\s/g, '+');
     Axios.get(
-      `https://api.discogs.com/database/search?artist=${artistNameCleaned}&format=vinyl&type=release&sort=year&token=${process.env.REACT_APP_DISCOGS_TOKEN}`
+      `https://api.discogs.com/database/search?artist=Nir&format=vinyl&type=release&sort=year&token=SnbvbMLqlVYcQKFAhbXVKWlDloxshfQpbnOEHjUq`
     ).then((responseFromApi) => {
       const artistVinylReleases = responseFromApi.data;
       this.setState({

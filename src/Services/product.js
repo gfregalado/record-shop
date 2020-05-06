@@ -10,4 +10,14 @@ const productslist = async (apiendpoint) => {
   }
 };
 
-export { productslist };
+const masterVersion = async (apiendpoint) => {
+  try {
+    const result = await axios.get(apiendpoint);
+    const master = result.data;
+    return master;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export { productslist, masterVersion };

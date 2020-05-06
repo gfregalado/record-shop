@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Card, Col, Row } from 'antd';
 import './styles.scss';
 import PulseLoader from 'react-spinners/PulseLoader';
@@ -75,7 +76,7 @@ class Storefront extends Component {
           <Card
             cover={
               <img
-                alt="example"
+                alt="album Cover"
                 src={product.cover_image}
                 onError={(e) => {
                   e.target.onerror = null;
@@ -85,8 +86,21 @@ class Storefront extends Component {
               />
             }
           >
-            <p>{this.retrieveArtist(product.title)}</p>
-            <p>{this.retrieveAlbum(product.title)}</p>
+            <div className="album-details">
+              <strong>
+                <p style={{ marginBottom: '0px' }}>
+                  {this.retrieveArtist(product.title)}
+                </p>
+              </strong>
+              <Link
+                to={{
+                  pathname: `/album/${product.master_id}`,
+                  albumCover: `${product.cover_image}`,
+                }}
+              >
+                <p>{this.retrieveAlbum(product.title)}</p>
+              </Link>
+            </div>
           </Card>
         </Col>
       );

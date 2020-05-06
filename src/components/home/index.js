@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import './styles.scss';
 import { Row, Col, Button } from 'antd';
 
-// import axios from 'axios';
-
 class Home extends React.Component {
   constructor(props) {
     super(props);
