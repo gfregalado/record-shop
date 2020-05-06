@@ -25,7 +25,6 @@ class Storefront extends Component {
       this.fetchData();
     }
   }
-  // https://api.discogs.com/database/search?sort=year&format=vinyl&token=SnbvbMLqlVYcQKFAhbXVKWlDloxshfQpbnOEHjUq&sort_order=desc&per_page=8&type=release&page=3
 
   fetchData() {
     const page = this.state.page;
@@ -64,7 +63,19 @@ class Storefront extends Component {
           key={product.id}
           style={{ width: '25%', paddingLeft: '6%', paddingRight: '6%' }}
         >
-          <Card cover={<img alt="example" src={product.cover_image} />}>
+          <Card
+            cover={
+              <img
+                alt="example"
+                src={product.cover_image}
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src =
+                    'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Copyright.svg/600px-Copyright.svg.png';
+                }}
+              />
+            }
+          >
             <p>{product.title}</p>
           </Card>
         </Col>
